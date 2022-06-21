@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        C - dennis richie - while develpoing unix os.
+        high -level language.. pouplarly used
+        aplication programming languangue(for apps ex VS code) vs System programming lang(SPL)(for os)
+        C related to SPL
+        portable , platform independedn hardware indepenedent -- dont need traspiling st. away we can render
+        mother of js, java python c++ php perl
+        structiure-==> 
+        header ==> stdio.h , math.h #include stdio.h, stdlib.h for malloc, calloc .h ==> header like imports
+        stdio -- standrd input o/p deals with all input o/p func==ex printf, scanf
+        math will contain math functions ex sqrtt pow floor etc
+            main ==> body of program
+            execution starting point is main section and it is executed by OS
+#include<stdio.h>
+int main()
+{
+    printf("Thank you");
+    return 0; ==> return 0 to os if func ran sucesfully without issue else it will return nonzero no. to os
+}
+    comments same as js
+
+    compiler converst high level lang into machine readable low level lang
+
+
+    Printf =>  printf returns no. of characters printed inside the func printf("hi")==> here 2;
+
+    escape characters ===>
+       printf("Hello\nWorld");                  Hello
+                                              World
+       printf("Hello\tWorld");                  Hello   World
+       printf("Hello\'World\'");                Hello'World'
+       printf("Hello\"World\"");                Hello"World"
+       printf("Hello \\ World");                Hello World
+
+Data type
+        int - 4bytes
+        char 1
+        float 4
+        dounle 8
+        void 1
+variable name -- can start only with _a-zA-z and contains only a-zA-Z0-9_ and no other specail chars
+const ==> const datatype name  = value; cannot be reassigned
+printf ==>
+int = %d ; float = %f ; double = %lf ;char = %c , address of variable is hexadecimal hence %x string = "%s"
+ex int1 = 1 int2 = 2 ; 
+prinff("%d %d", int1, int2)           ... here first %, will see first parm after comma and seco % will see next and goes on
+also printf("int1=%d\tint2=%d",int1,int2) it will print ===> "int1=1  int2=2"
+&variablename will return address of variable which is in hexadecimal format
+scanf==> 
+
+two input => 1) data type == %d or %f 2)address of varibale &var1 &var2 etc
+example fr scanf
+#include<stdio.h> 
+int main()
+{
+   //Edit below this line
+   int N;
+   int M;
+   scanf("%d%d",&N,&M);
+   printf("N=%d\nM=%d", N, M);
+    return 0; 
+}
+
+operator vs operand a+b == here a,b operand and + is operator
+types- unary binary ternary
+unary have single operand ex =i-- ++i
+binary a+b 2 operands
+ternanry - x ? d : n; also called conditional statement
+
+printf("a +b=%d\n",a+b);
+printf("a-b=%d\n",a-b);
+printf("a*b=%d\n",a⋆b);
+printf("a /b=%d\n",a/b);
+printf("a%%b=%d\n",a%b); as % is format specifier twice %
+
+Relational operator ==> if true return 1 else return 0
+sizeof attribute helps to find size of variable/datatype
+++a vs a++ : a=10l b= a++ here a=11; b =10 firsr a assign then only increment.. but a=10; b =++a ==> here both become 11
+precedemce ==> 1= () ; 2= * / ;3= - + if both are same precedence come from left to right
+
+Bitwise OR(1) -- 
+binary to decimal to binary -- x --do x/2 continuously and keep the reminder in sequence and reverse the reminder seq finally it is binary equialet
+decimal to binar = 101010 -== last digit * 2 pow 2+ n-1 *2pow 1 + n-2digit *  2pow 2...
+
+a |b -- bitwise or/ or mask == anything with 1 is 1;
+a&b =-- bitwise and /and mask== anything with 0 is 0;
+ex.. dec no. 22 will be stored in binary form in memoery like 10111101 (not correct just sample)
+to make anything as 1 == use or operator ..
+and vise versa for and operator;
+Bitwise AND(&)
+Bitwise XOR(^) for basic cryptography a xor of b = c /// a xor of c == b  in xor same no == 0,, 1 1=0 0 1=1
+Bitwise Left Shift(<<) eight bits 14 00001110-- 14 << 1 left sift == 00011100 here value is 28 ---< x (left shitf of )y == x * 2 power y
+Bitwise Right Shift(>>) same but here shidts towards right== x >>(right shift of) y = x *(2 pow y)
+Bitwise Ones Complement Operator(~) ~ M = -(M+1)
+
+String vs Char
+"" double quotes                        '' single quote
+array of char ending with null              not null
+"hello"                             arr of char-      ['h', 'e', 'o']
+while getting input string from user.. if user gave input "hello world", after space it will inject null pointer and end the process hence onlhy "hello" will stored and world is neglected
+in memoryt it is "hello\n" each char 1byte memory
+
+char str[]
+N char length string have n+1 size becoz last terminayted by null \0'
+char str[N+1] = "Hi Hello"; or  char str[] = "Hi Hello"; compiler will decifde size
+char str[N+1] = {'h', 'e', 'l', 'l', 'o','\0'}; or
+char str[] = {'h', 'e', 'l', 'l', 'o','\0'};
+all 4 are fine'
+
+For strinmg alone in scanf inseatd of &name , it will be name st. away because variable name itself is address
+char name[];
+printf("Enter your name\n");
+scanf("%s",name);
+printf("Welcome%s\n",name);
+
+in switch case only int or char allowed
+break is necessary else, it will excecute other cases also
+
+Functions--  return type Name (datatype params){-- if no returntype -- use void as datatype
+
+    pointer ==> refers address of another varibale 
+inta=10;
+int*ptr=&a;
+printf("value ofa=%d\n",a); //value ofa=10
+printf("value stored at ptr=%d\n",*ptr); //value stored at ptr=10
+printf("Address ofa=%d\n",&a);  // Address ofa=1024
+printf("ptr points to the address=%d\n",ptr);   //ptr points to the address=1024
+printf("Address of ptr=%d\n",&ptr);     //Address of ptr=1000
+
+10 is stored athoda memeory adres 1204.. so ptr will store 1204 and (ptr itself will have another address for eg 1000)
+*ptr will shore 10 value of a .. (dereferencing value) it points to value that is the address mentioned;
+so *ptr=10, ptr= 1204; &a= 1204  &ptr= 1000
+
+inta=10;
+int*ptr&a;
+int ** dptr=&ptr;
+printf("Address ofa=%p\n",&a);
+printf("ptr is pointing to the address=%p\n",ptr);
+printf("dptr is pointing to the address=%p\n",dptr);
+printf("Value ofa=%d\n",a);
+printf("*ptr=%d\n",*ptr);
+printf("** dptr=%d\n",** dptr);
+                                                                                           Output
+                                                                               Address ofa=1024
+                                                                               ptr is pointing to the
+                                                                               address=1024
+                                                                               dptr is pointing to the
+                                                                               address 2024
+                                                                               Value ofa=10
+                                                                               *ptr=10
+                                                                               ** dptr=10
+
+
+dptr
+2024 ->value
+3024 ->address
+Address of'dptr'
+(&dptr)
+                        ptr
+                       1024
+                       2024
+                 Address of'ptr'
+                      (&ptr)
+                                                 a
+                                                10
+                                                1024
+                                           Address of'a'
+                                                (&a)
+
+
+
+Array == datatype name[size] = {1,2,3,4}; homogenoues datattype-== stores similar dataty[e items]
+without size also we can initialize.
+2d array = > int arr[i][j]= {1,2,3,4,5,6,7,8,9} -- here 3 * 3 ==== index will 00, 01,02,10,11,12,20,21,22 like matrix
+also we can do lik e {{1,2,3},{4,5,6},{7.8,9}} ==> extra spaces will be filed with zero if elemnets count is less than size. 
+
+
+Structure=== heterogenous datatype == 
+struct student{
+    int rollno;
+    char name[];
+    int age;
+    float mark;
+
+}
+
+declaration ==> struct car{
+    char name[];
+    int cost
+} car1 ==..>> here struct keyword , entire car obj datatype, car 1 is variable name.. similaizry we can use multiple varibal ename car1, car2.
+struct car{
+      char name[5];
+      float price;
+};
+struct car carl={"xyz",987432.50}; oor before semicolon in linw 205, add car1 to declare;
+   struct mobile{
+       int cost;
+       char name[10];
+       char color[10];
+   }phone;
+   scanf("%s%d%s",&phone.name, &phone.cost,&phone.color);
+   printf("%s\n", phone.name);
+     printf("%d\n", phone.cost); 
+     printf("%s", phone.color);
+
+Struct within struct::
+ struct point
+{
+    int x;
+    int y;
+};
+struct line
+{
+    struct point pl;
+    struct point p2;
+
+};
+struct line line1;
+
+to access, line1.p1.x ; line1,p2,y;
+
+
+Write an expression to add the members j, k of the below structure.
+
+struct one
+{
+     inti i;
+     struct two
+     {
+          int j;
+          struct three
+          {
+                int k;
+          }var3;
+      }var2;
+}var1;
+
+ANs : var1.var2.j + var1.var2.var3.k
+
+Dynamic memory ==> malloc , calloc
+
+static memory stored in stack, dynamic memory is stored in heap;
+synatx;
+int *ptr;
+ptr = malloc(5 * sizeof(int));
+
+*(ptr+0)= 10;
+*(ptr+1)=11;
+.. always be careful while using this.. in case of null/ memory exceeds chance of code crash
+    
+calloc(5, sizeof(float))
+synatx == malloc -> malloc( count , size of daattatype)
+calloc= contiguos --(count, size of datatype)
+realloc => to reallocate malloc and calloc,,,, (ptr, new size);
+
+
+
+}
+                                               
+                                               
+                                               
+                                                            
+    -->
+</body>
+
+</html>
